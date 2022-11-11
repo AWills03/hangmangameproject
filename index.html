@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hangman with various API's">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title>Hangman</title>
+    <link rel="icon" type="image/x-icon" href="/img/icon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="mainPage">
+        <div class="title" onmouseover="this.innerHTML='HANGMAN'" onmouseleave="this.innerHTML='H_NGM_N'">H_NGM_N</div>
+        <div class="pickContainer" id="selectScreen">
+            <button type="button" id="ownWord">Decrypt Passcode</button>
+            <button type="button" id="randomSuperhero">Decrypt Passcode</button>
+            <button type="button" id="randomPokemon">Decrypt Passcode</button>
+            <button type="button" id="randomAnimal">Decrypt Passcode</button>
+            <button type="button" id="randomWord">Decrypt Passcode</button>
+        </div>
+    </div>
+
+    <div id="submitContainer">
+        <label for="word" class="wordLabel">Enter Passcode:</label>
+        <br>
+        <input type="password" id="word" name="word" maxlength="20" onkeypress="return allowOnlyLetters(event,this);">
+        <br>
+        <button for="word" type="submit" id="submitButton">Execute</button>
+    </div>
+
+    <div id="gameScreen">
+        <canvas id="hangmanCanvas" width="240px" height="200px"></canvas>
+        <div id="guessesLeft">Time is running out: 8</div>
+        <div id="blanks"></div>
+        <div id="keys"></div>
+        <div id="wrongLetters"></div>
+    </div>
+
+    <div id="resultScreen">
+        <div id="message"></div>
+        <br>
+        <div id="solution"></div>
+        <br>
+        <div id="spriteDiv"></div>
+        <br>
+        <div id="leftoverGuesses"></div>
+        <br>
+        <button type="button" id="playAgainButton">Play again</button>
+    </div>
+
+    <script src="index.js"></script>
+    <script src="drawHangman.js"></script>
+    <script src="apiFiles/wordGenerator.js"></script>
+    <script src="apiFiles/animalGenerator.js"></script>
+    <script src="apiFiles/superheroGenerator.js"></script>
+</body>
+</html>
